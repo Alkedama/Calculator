@@ -1,9 +1,5 @@
 'use strict';
 
-let num1 = [];
-let num2 = [];
-let operator;
-
 let add = (a, b) => {
     return a + b;
 }
@@ -24,6 +20,10 @@ let operate = (operation, a, b) => {
     
 }
 
+let num1 = [];
+let num2 = [];
+let operator;
+
 const containerNumbers = document.querySelector('.containerNumbers');
 const buttonNumbers = containerNumbers.querySelectorAll('button');
 
@@ -31,8 +31,15 @@ const operateButton = document.querySelector('#btnOperate');
 
 const p = document.createElement('p');
 
-function numberFunction() {
-    this.displayNumbers = function(){
+function numberFunction(numbs, num2, operator) {
+
+    this.bruv = function() {
+        numbs;
+        num2;
+        operator;
+    }
+
+
 buttonNumbers.forEach(buttons => {
     buttons.addEventListener('click', function(e) {
 
@@ -43,31 +50,15 @@ buttonNumbers.forEach(buttons => {
         containerNumbers.appendChild(p);
 
         p.textContent = parseInt(processNum1);
-        return parseInt(processNum1);
+        // return parseInt(processNum1);
+        // return num1;
+        console.log(numbs);
        
 });
 
 });
-return 5;
-}
 }
 
-function operatorFunction(num1) {
-    
+const c1 = new numberFunction(1, 3, '+');
 
-const containerOperator = document.querySelector('.containerOperator');
-const buttonOperator = containerOperator.querySelectorAll('button');
-
-buttonOperator.forEach(buttons => {
-    buttons.addEventListener('click', function(e) {
-        console.log(num1);
-        console.log(buttons.textContent);
-    });
-});
-
-}
-
-let c1 = new numberFunction();
-
-operatorFunction(c1.displayNumbers);
-// operatorFunction(numberFunction());
+console.log(c1.bruv());
