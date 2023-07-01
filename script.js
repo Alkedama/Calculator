@@ -17,48 +17,67 @@ let divide = (a, b) => {
 }
 
 let operate = (operation, a, b) => {
-    
+
 }
 
 let num1 = [];
 let num2 = [];
 let operator;
+let processNum1;
+let processNum2;
 
 const containerNumbers = document.querySelector('.containerNumbers');
 const buttonNumbers = containerNumbers.querySelectorAll('button');
 
 const operateButton = document.querySelector('#btnOperate');
 
-const p = document.createElement('p');
+const pNum1 = document.createElement('span');
+const pNum2 = document.createElement('span');
+const pOperator = document.createElement('span');
 
-function numberFunction(numbs, num2, operator) {
 
-    this.bruv = function() {
-        numbs;
-        num2;
-        operator;
-    }
+const operatorContainer = document.querySelector('.containerOperator');
+const operatorButton = operatorContainer.querySelectorAll('button');
 
 
 buttonNumbers.forEach(buttons => {
-    buttons.addEventListener('click', function(e) {
+    buttons.addEventListener('click', function (e) {
+        if (operator === undefined) {
+            num1.push(buttons.textContent);
+            // processNum1 = num1.join("");
 
-       
-        num1.push(buttons.textContent);
-        let processNum1 = num1.join("");
+            containerNumbers.appendChild(pNum1);
 
-        containerNumbers.appendChild(p);
+            // p.textContent = parseInt(processNum1);
+            pNum1.textContent += buttons.textContent;
 
-        p.textContent = parseInt(processNum1);
-        // return parseInt(processNum1);
-        // return num1;
-        console.log(numbs);
-       
+            console.log('num1:' + num1);
+
+        } else if (operator !== undefined) {
+            num2.push(buttons.textContent);
+
+            containerNumbers.appendChild(pNum2);
+            pNum2.textContent += buttons.textContent;
+
+            console.log('num2:' + num2);
+        }
+
+    });
+
 });
 
+operatorButton.forEach(buttons => {
+    buttons.addEventListener('click', function (e) {
+
+        if (num1.length !== 0 && num2.length === 0) {
+            operator = buttons.textContent;
+
+            containerNumbers.appendChild(pOperator);
+
+            console.log(operator);
+            pOperator.textContent = " " + buttons.textContent + " ";
+        }
+
+    });
 });
-}
 
-const c1 = new numberFunction(1, 3, '+');
-
-console.log(c1.bruv());
